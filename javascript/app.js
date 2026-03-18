@@ -1,3 +1,5 @@
+import { getUnits } from "..javascript/api.js";
+
 document.addEventListener("DOMContentLoaded", async () => {
 
     const state = {
