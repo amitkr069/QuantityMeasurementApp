@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quantity Measurement</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div class="header text-center text-white py-4">
+        <h2>Welcome To Quantity Measurement</h2>
+    </div>
+
+    <div class="container main-box">
+
+        <!-- Choose Type -->
+        <h6 class="section-title">CHOOSE TYPE</h6>
+
+        <div class="row text-center g-4">
+
+            <div class="col-md-3">
+                <div class="type-card">
+                    <div class="icon">
+                        <img alt="length"
+                            src="https://tse1.mm.bing.net/th/id/OIP.TQIRsOwPPJjdofiDUgJW6AHaEK?rs=1&pid=ImgDetMain&o=7&rm=3"
+                            height="50px">
+                    </div>
+                    <p>Length</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="type-card">
+                    <div class="icon">
+                        <img height="50px" alt="weight"
+                            src="https://tse2.mm.bing.net/th/id/OIP.CMZlsY3dI_2_qo7qFwn-AwHaEu?rs=1&pid=ImgDetMain&o=7&rm=3">
+                    </div>
+                    <p>Weight</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="type-card">
+                    <div class="icon">
+                        <img alt="Temperature"
+                            src="https://www.shutterstock.com/image-vector/cartoon-illustration-ice-fire-handshake-260nw-2284552961.jpg"
+                            height="50px">
+                    </div>
+                    <p>Temperature</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="type-card">
+                    <div class="icon">
+                        <img alt="Volume" src="https://i.kym-cdn.com/photos/images/newsfeed/001/748/391/ea7.jpg"
+                            height="50px">
+                    </div>
+                    <p>Volume</p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Choose Action -->
+        <h6 class="section-title mt-5">CHOOSE ACTION</h6>
+
+        <div class="action-button mb-4">
+
+            <button class="btn action-btn">Comparison</button>
+            <button class="btn action-btn">Conversion</button>
+            <button class="btn action-btn">Arithmetic</button>
+
+        </div>
+
+
+        <!-- Values -->
+        <div class="row g-4 align-items-center">
+
+            <!-- FROM -->
+            <div class="col-md-5">
+                <label class="form-label">FROM</label>
+
+                <input type="number" id="fromValue" class="form-control value-input" placeholder="Enter value">
+
+                <select id="fromUnit" class="form-select unit-select mt-2"></select>
+            </div>
+
+            <!-- Operator / Arrow -->
+            <div class="col-md-2 text-center plus" id="operatorBox">
+                →
+            </div>
+
+            <!-- TO -->
+            <div class="col-md-5">
+                <label class="form-label">TO</label>
+
+                <input type="text" id="toValue" class="form-control value-input" readonly>
+
+                <select id="toUnit" class="form-select unit-select mt-2"></select>
+            </div>
+
+        </div>
+
+
+        <!-- Result -->
+        <!-- <div class="result-box mt-5">
+
+            <div class="row align-items-center">
+
+                <div class="col-md-6">
+
+                    <p class="result-label">RESULT</p>
+                    <h2 class="result-value">2</h2>
+
+                </div>
+
+                <div class="col-md-6 text-end">
+
+                    <select class="form-select result-select">
+                        <option>Kelvin</option>
+                        <option>Celsius</option>
+                        <option>Fahrenheit</option>
+                    </select>
+
+                </div>
+
+            </div>
+
+        </div> -->
+
+    </div>
+
+    <script src="../javascript/app.js"></script>
+
+</body>
+
+</html>

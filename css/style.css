@@ -1,0 +1,132 @@
+body{
+background:white;
+font-family:Segoe UI, sans-serif;
+}
+
+
+/* HEADER */
+
+.header{
+background: linear-gradient(90deg,#6a11cb,#2575fc);
+border-radius:5px 5px 0 0;
+}
+
+
+/* MAIN BOX */
+
+.main-box{
+width: 80%;
+background:white;
+padding:40px;
+border-radius: 0px;
+margin-top:0px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+
+/* SECTION TITLE */
+
+.section-title{
+font-size:13px;
+letter-spacing:1px;
+color:#777;
+margin-bottom:15px;
+}
+
+
+/* TYPE CARD */
+
+.type-card{
+background:#f3f4f7;
+padding:25px;
+border-radius:12px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.type-card:hover{
+transform:translateY(-3px);
+}
+
+.type-card .icon{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.type-card.active{
+border:2px solid #18c29c;
+background:#eef8f5;
+}
+
+
+/* ACTION BUTTONS */
+.action-button{
+display: flex;
+/* justify-content: center; */
+gap: 1rem;
+flex-wrap: wrap;
+}
+.action-btn{
+background:#f1f2f6;
+border:none;
+padding: .8rem 6.8rem;
+border-radius:8px;
+
+}
+
+.active-btn{
+background:linear-gradient(90deg,#7b2ff7,#a239ea);
+color:white;
+}
+
+
+/* VALUE INPUT */
+
+.value-input{
+height:60px;
+font-size:28px;
+font-weight:600;
+}
+
+.unit-select{
+height:45px;
+}
+
+#toValue{
+background:#eef1f5;
+}
+
+
+/* PLUS */
+
+.plus{
+font-size:28px;
+font-weight:bold;
+margin-top:25px;
+}
+
+
+/* RESULT BOX */
+
+.result-box{
+background:#f7f8fb;
+border-radius:10px;
+padding:25px;
+border-left:4px solid #18c29c;
+}
+
+.result-label{
+font-size:12px;
+color:#777;
+margin-bottom:5px;
+}
+
+.result-value{
+color:#7b2ff7;
+font-weight:700;
+}
+
+.result-select{
+width:160px;
+float:right;
+}
