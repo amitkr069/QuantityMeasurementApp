@@ -1,4 +1,14 @@
+/**
+ * @author Amit
+ * @version 10.0
+ * populating drop down has been added in this version
+ */
 import { getUnits } from "..javascript/api.js";
+import { getConversion } from "./api.js";
+import { applyConversion } from "./conversion.js";
+
+const convObj = await getConversion(from, to);
+const result = applyConversion(value, convObj);
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -54,21 +64,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     async function loadUnits(type) {
         const units = await getUnits(type);
 
-        if (!units.length) {
-            alert("No units found");
-            return;
-        }
+        populateDropdown(fromUnitSelect, units);
+        populateDropdown(toUnitSelect, units);
 
-        fromUnitSelect.innerHTML = "";
-        toUnitSelect.innerHTML = "";
-
-        units.forEach(unit => {
-            fromUnitSelect.innerHTML += `<option value="${unit.symbol}">${unit.label}</option>`;
-            toUnitSelect.innerHTML += `<option value="${unit.symbol}">${unit.label}</option>`;
-        });
-
-        state.fromUnit = units[0]?.symbol || "";
-        state.toUnit = units[0]?.symbol || "";
+        state.fromUnit = "";
+        state.toUnit = "";
     }
 
     function setDefaultActive() {
@@ -90,5 +90,28 @@ document.addEventListener("DOMContentLoaded", async () => {
             console.error(error);
         }
     }
+
+    function populateDropdown(selectEl, units) {
+    if (!selectEl) {
+        console.warn("Dropdown element not found");
+        return;
+    }
+
+    selectEl.innerHTML = "";
+
+    const defaultOption = document.createElement("option");
+    defaultOption.value = "";
+    defaultOption.textContent = "-- Select Unit --";
+    defaultOption.disabled = true;
+    defaultOption.selected = true;
+    selectEl.appendChild(defaultOption);
+
+    units.forEach(u => {
+        const opt = document.createElement("option");
+        opt.value = u.symbol;
+        opt.textContent = `${u.label} (${u.symbol})`;
+        selectEl.appendChild(opt);
+    });
+}
 
 });

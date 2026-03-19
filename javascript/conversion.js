@@ -1,8 +1,3 @@
-/**
- * @author Amit
- * @version 9.0
- * the arithmetic operation function is added for use csae 9
- */
 export function applyConversion(value, convObj) {
     if (!Number.isFinite(value)) {
         throw new Error("Invalid number");
