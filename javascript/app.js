@@ -6,7 +6,8 @@
 import { getUnits } from "./api.js";
 import { getConversion } from "./api.js";
 import { applyConversion } from "./conversion.js";
-import { showResult } from "./ui.js";
+import { showResult, renderHistory } from "./ui.js";
+
 
 document.addEventListener("DOMContentLoaded", async () => {
 
@@ -111,11 +112,14 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     async function loadHistory() {
         try {
-            const res = await fetch("http://localhost:3000/history");
+            const res = await fetch("http://localhost:3000/history?_sort=timestamp&_order=desc");
             const history = await res.json();
-            console.log("History:", history);
+
+            renderHistory(history);
+
         } catch (error) {
             console.error(error);
+            renderHistory([]);
         }
     }
 

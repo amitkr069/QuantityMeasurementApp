@@ -72,7 +72,7 @@ flex-wrap: wrap;
 .action-btn{
 background:#f1f2f6;
 border:none;
-padding: .8rem 6.8rem;
+padding: .8rem 6.7rem;
 border-radius:8px;
 
 }
@@ -156,4 +156,8 @@ animation: flash 1.5s ease;
 0%{transform:scale(1);}
 50%{transform:scale(1.05);}
 100%{transform:scale(1);}
+}
+
+#history-list li{
+font-size:14px;
 }
