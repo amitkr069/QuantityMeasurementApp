@@ -43,7 +43,15 @@ document.addEventListener("DOMContentLoaded", async () => {
             card.addEventListener("click", async () => {
                 setActive(typeContainer, card, ".type-card");
 
-                state.type = card.innerText.trim();
+                // state.type = card.innerText.trim();
+                // await loadUnits(state.type);
+                state.type = card.dataset.type;
+
+                document.getElementById("fromValue").value = "";
+                document.getElementById("toValue").value = "";
+
+                showResult(null, "");
+
                 await loadUnits(state.type);
             });
         });
@@ -66,6 +74,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     async function loadUnits(type) {
         const units = await getUnits(type);
+
+        if (!units.length) {
+            console.error("Failed to load units");
+            return;
+        }
 
         populateDropdown(fromUnitSelect, units);
         populateDropdown(toUnitSelect, units);
