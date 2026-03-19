@@ -60,13 +60,19 @@ document.addEventListener("DOMContentLoaded", async () => {
             btn.addEventListener("click", () => {
                 setActive(actionContainer, btn, ".action-btn");
 
-                state.action = btn.innerText.trim();
+                // state.action = btn.innerText.trim();
 
-                if (state.action === "Arithmetic") {
-                    toggleOperators(true);
-                } else {
-                    toggleOperators(false);
-                }
+                // if (state.action === "Arithmetic") {
+                //     toggleOperators(true);
+                // } else {
+                //     toggleOperators(false);
+                // }
+
+                state.action = btn.dataset.action;
+
+                toggleOperators(state.action === "Arithmetic");
+
+                showResult(null, "");
             });
         });
 
