@@ -1,6 +1,6 @@
 /**
  * @author Amit
- * @version 12.0
+ * @version 13.0
  */
 
 import { getUnits } from "./api.js";
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadUnits("Length");
     toggleOperators(false);
     loadHistory();
-    showResult(25, "km");
+    // showResult(25, "km");
     attachEventListeners();
 
     function attachEventListeners() {
@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 }
             });
         });
-        
+
     }
 
     async function loadUnits(type) {
@@ -78,9 +78,35 @@ document.addEventListener("DOMContentLoaded", async () => {
         actionButtons[0].classList.add("active");
     }
 
+    // function toggleOperators(show) {
+    //     const operatorBox = document.getElementById("operatorBox");
+    //     operatorBox.innerHTML = show ? "+" : "→";
+    // }
     function toggleOperators(show) {
         const operatorBox = document.getElementById("operatorBox");
-        operatorBox.innerHTML = show ? "+" : "→";
+
+        if (show) {
+            operatorBox.innerHTML = `
+            <select id="operatorSelect" class="form-select operator-select">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+        `;
+
+            const operatorSelect = document.getElementById("operatorSelect");
+
+            operatorSelect.addEventListener("change", () => {
+                state.operator = operatorSelect.value;
+            });
+
+            state.operator = "+";
+
+        } else {
+            operatorBox.innerHTML = "→";
+            state.operator = "+";
+        }
     }
 
     async function loadHistory() {
