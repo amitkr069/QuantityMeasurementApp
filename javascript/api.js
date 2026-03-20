@@ -1,72 +1,32 @@
 const BASE_URL = "http://localhost:3000";
 
 export async function getUnits(type) {
-    try {
-        const res = await fetch(`${BASE_URL}/units?type=${type}`);
-
-        if (!res.ok) {
-            throw new Error(`HTTP ${res.status}`);
-        }
-
-        return await res.json();
-
-    } catch (error) {
-        console.error("Error fetching units:", error);
-        return [];
-    }
+    const res = await fetch(`${BASE_URL}/units?type=${type}`);
+    return await res.json();
 }
 
 export async function getConversion(from, to) {
-    try {
-        const res = await fetch(`${BASE_URL}/conversions?from=${from}&to=${to}`);
-
-        if (!res.ok) {
-            throw new Error(`HTTP ${res.status}`);
-        }
-
-        const data = await res.json();
-
-        if (!data.length) {
-            throw new Error("No conversion found");
-        }
-
-        return data[0];
-
-    } catch (error) {
-        console.error("Error fetching conversion:", error);
-        throw error;
-    }
+    const res = await fetch(`${BASE_URL}/conversions?from=${from}&to=${to}`);
+    const data = await res.json();
+    return data[0];
 }
 
 export async function saveHistory(record) {
-    try {
-        const res = await fetch(`${BASE_URL}/history`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(record)
-        });
-
-        return await res.json();
-
-    } catch (error) {
-        console.error("Error saving history:", error);
-    }
+    const res = await fetch(`${BASE_URL}/history`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(record)
+    });
+    
+    
+    return await res.json(); 
 }
 
 export async function getHistory() {
-    try {
-        const res = await fetch(`${BASE_URL}/history?_sort=timestamp&_order=desc`);
-
-        if (!res.ok) {
-            throw new Error(`HTTP ${res.status}`);
-        }
-
-        return await res.json();
-
-    } catch (error) {
-        console.error("Error loading history:", error);
-        return [];
-    }
+    const res = await fetch(`${BASE_URL}/history`);
+    const data = await res.json();
+    
+    return data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
 }

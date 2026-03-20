@@ -126,10 +126,12 @@ font-weight:bold;
 /* RESULT BOX */
 
 .result-box{
+display: none;
 background:#f7f8fb;
 border-radius:10px;
 padding:25px;
 border-left:4px solid #18c29c;
+
 }
 
 .result-label{
