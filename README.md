@@ -36,7 +36,7 @@ Returns numeric result in FROM unit.
 
    "/": if (v2normalised === 0) throw Error("Divide by zero")
 
-        return parseFloat((v1 / v2normalised).toFixed(6))
+   return parseFloat((v1 / v2normalised).toFixed(6))
 
 3. default: throw Error("Unknown operator")
 
